@@ -8,31 +8,27 @@ namespace ConsoleTest
         private const string numberString = "0123456789";
         static void Main(string[] args)
         {
-            var str = "4vi00q2m9";
+            var str = "b4vi00q2m9";
 
             var s = ParseNumber(str);
             Console.WriteLine(s);
 
             Console.ReadLine();
         }
-  
-        private static StringBuilder sb = new StringBuilder();
-        private static string ParseNumber(string text, int position = 0)
-        { 
-            if (position <= text.Length - 1)
+
+        private static string ParseNumber(string text)
+        {          
+            var sb = new StringBuilder();
+            for (int i = 0; i < text.Length; i++)
             {
-                var current = text[position];
-                position++;
-
-                if (GetIndex(current) > -1)                    
+                var current = text[i];  
+                if (ParseIndex(current) > -1)  
                     sb.Append(current);
-
-                ParseNumber(text, position);
             }
-             return sb.ToString();        
+            return sb.ToString();
         }
-
-        private static int GetIndex(char x)
+       
+        private static int ParseIndex(char x)
         {
             var arr = numberString.ToCharArray();
             var lower = 0;
