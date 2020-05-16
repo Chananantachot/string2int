@@ -69,7 +69,7 @@ namespace ConsoleTest
                 upper = mid - 1;
                 
 
-            return GetIndex(arr, x,lower, upper);                   
+            return GetIndex(arr, c,lower, upper);                   
         }
 
         private static char MoveNext()
