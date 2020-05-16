@@ -22,6 +22,6 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Run  
-      run: dotnet run
+      run: dotnet run --project ConsoleTest/ConsoleTest.csproj
     - name: Test
       run: dotnet test --no-restore --verbosity normal
