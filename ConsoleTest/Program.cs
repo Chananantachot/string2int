@@ -18,7 +18,7 @@ namespace ConsoleTest
         static void Test()
         {
             var arrs = new string[]{ "iy57g8u8","8b4jv0v1","253zi3b9","w60fjtg7","5pf4eci9",
-                                     "u43g2g6g","5m69ax7h","3y46fa1w","0a5p3lv2","lwqb357p"};
+                                     "u43g2g6g","5m69ax7h","3y46fa1w","0a5p3lv2","lwqb357p" };
             foreach (var arr in arrs)
             {                  
                 text = arr;
@@ -39,11 +39,13 @@ namespace ConsoleTest
             }
              
             var current = MoveNext(); 
-            if (ParseIndex(current) > -1)                
+            if (IsDigit(current))                
                 return current.ToString() + Parse();
 
             return Parse();    
         }
+        
+        private static bool IsDigit(char c) => ParseIndex(c) > -1;
 
         private static int ParseIndex(char x)
         {           
