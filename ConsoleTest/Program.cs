@@ -6,25 +6,51 @@ namespace ConsoleTest
     class Program
     {
         private const string numberString = "0123456789";
+        private static int position = 0;
+        private static string text;
+
         static void Main(string[] args)
         {
-            var str = "b4vi00q2m9";
+            text = "b4vi00q2m9";
 
-            var s = ParseNumber(str);
+            var s = ParseNumber();
             Console.WriteLine(s);
 
             Console.ReadLine();
         }
 
-        private static string ParseNumber(string text)
+        private static char Peek(int offset)
+        {
+            var index = position + offset;
+            if(index >= text.Length)
+                return text[index -1];
+
+            return text[index];
+        }
+
+        private static char MoveNext()
+        {
+            var current = Peek(0);
+            position++;
+            return current;
+        }
+
+        private static string Parse()
+        {
+            if(position > text.Length - 1)
+              return null;
+
+            var current = MoveNext(); 
+            if (ParseIndex(current) > -1)                
+                return current.ToString() + Parse();
+            return Parse();    
+        }
+
+        private static string ParseNumber()
         {          
             var sb = new StringBuilder();
-            for (int i = 0; i < text.Length; i++)
-            {
-                var current = text[i];  
-                if (ParseIndex(current) > -1)  
-                    sb.Append(current);
-            }
+            sb.Append(Parse());
+
             return sb.ToString();
         }
        
