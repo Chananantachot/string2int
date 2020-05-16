@@ -46,28 +46,30 @@ namespace ConsoleTest
         }
 
         private static int ParseIndex(char x)
-        {
+        {           
             var arr = numberString.ToCharArray();
-            var lower = 0;
-            var upper = arr.Length - 1;
-            while (lower <= upper)
-            {
-                var mid = lower + (upper - lower) / 2;
-                var res = x.CompareTo(arr[mid]);
+            return GetIndex(arr, x,0, arr.Length - 1);
+        }
 
-                // Check if x is present at mid  
-                if (res == 0)
-                    return mid;
+        private static int GetIndex(char[] arr,char c, int lower, int upper)
+        {
+            if(lower > upper)
+                return -1;
 
-                // If x greater, ignore left half  
-                if (res > 0)
-                    lower = mid + 1;
+            var mid = lower + (upper - lower) / 2;
+            var index = c.CompareTo(arr[mid]);   
 
-                // If x is smaller, ignore right half  
-                else
-                    upper = mid - 1;
-            }
-            return -1;
+            if (index == 0)
+                return mid;
+
+
+            if (index > 0)            
+                lower = mid + 1;                            
+            else         
+                upper = mid - 1;
+                
+
+            return GetIndex(arr, x,lower, upper);                   
         }
 
         private static char MoveNext()
