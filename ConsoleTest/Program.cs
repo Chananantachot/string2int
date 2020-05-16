@@ -10,11 +10,7 @@ namespace ConsoleTest
         private static string text;
 
         static void Main(string[] args)
-        {
-           // text = "8b4jv0v1";
-
-            //var s = ParseNumber();
-            //Console.WriteLine(s);
+        {          
             Test();
             Console.ReadLine();
         }
@@ -31,22 +27,8 @@ namespace ConsoleTest
                 text = string.Empty;                         
             }
         }
-   
-        private static char Peek(int offset)
-        {
-            var index = position + offset;
-            if(index >= text.Length)
-                return text[index -1];
-
-            return text[index];
-        }
-
-        private static char MoveNext()
-        {
-            var current = Peek(0);
-            position++;
-            return current;
-        }
+        
+        private static string ParseNumber() => new StringBuilder().Append(Parse()).ToString();
 
         private static string Parse()
         {
@@ -63,14 +45,6 @@ namespace ConsoleTest
             return Parse();    
         }
 
-        private static string ParseNumber()
-        {          
-            var sb = new StringBuilder();
-            sb.Append(Parse());
-          
-            return sb.ToString();
-        }
-       
         private static int ParseIndex(char x)
         {
             var arr = numberString.ToCharArray();
@@ -94,6 +68,21 @@ namespace ConsoleTest
                     upper = mid - 1;
             }
             return -1;
+        }
+        private static char MoveNext()
+        {
+            var current = Peek(0);
+            position++;
+            return current;
+        }
+
+        private static char Peek(int offset)
+        {
+            var index = position + offset;
+            if(index >= text.Length)
+                return text[index -1];
+
+            return text[index];
         }
     }
 }
