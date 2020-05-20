@@ -22,14 +22,31 @@ namespace ConsoleTest
             foreach (var arr in arrs)
             {                  
                 text = arr;
-                var s = ParseNumber();
-                Console.WriteLine($"{text} --> {s}");
+                var n = ParseNumber();
+                Console.WriteLine($"{text} --> {n}");
                 text = string.Empty;                         
             }
         }
         
-        private static string ParseNumber() => new StringBuilder().Append(Parse()).ToString();
-
+        private static int ParseNumber() 
+        {
+           var str =new StringBuilder().Append(Parse()).ToString();
+           return ParseToInt(str);
+        }   
+            
+        private static int ParseToInt(string s, int pos = 0 , int val = 0)
+        {
+            var current = s[pos];
+            pos++;
+            val *=10;
+            val += current - '0';
+            
+            if(pos == s.Length)
+                return val;
+            
+            return ParseToInt(s,pos,val);            
+        }
+        
         private static string Parse()
         {
             if(position > text.Length - 1)
