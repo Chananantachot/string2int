@@ -23,7 +23,7 @@ namespace ConsoleTest
             {                  
                 text = arr;
                 var n = ParseNumber();
-                Console.WriteLine($"{text} --> {n}");
+                Console.WriteLine($"{arr} --> {n}");
                 text = string.Empty;                         
             }
         }
