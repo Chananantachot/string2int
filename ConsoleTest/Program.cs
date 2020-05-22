@@ -36,10 +36,8 @@ namespace ConsoleTest
             
         private static int ParseToInt(int value = 0)
         {
-            var current = MoveNext();
-            
+            var current = MoveNext();          
             value = value * 10 + (current - '0');
-            //value += current - '0';
             
             if(position == text.Length)
             {
