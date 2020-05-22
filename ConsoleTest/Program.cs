@@ -38,7 +38,7 @@ namespace ConsoleTest
         {
             var current = MoveNext();
             
-            value *=10 + (current - '0');
+            value = value * 10 + (current - '0');
             //value += current - '0';
             
             if(position == text.Length)
