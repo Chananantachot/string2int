@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ConsoleTest
 {
@@ -21,21 +22,21 @@ namespace ConsoleTest
            GC.SuppressFinalize(this); 
         }
 
-        internal int Parse(int value = 0)
-        {
-            if(position > _text.Length - 1)
-                return value;            
-             
-            var current = MoveNext(); 
-            if (IsDigit(current))            
-                value = value * 10 + (current - '0');                
-            
-            return Parse(value);    
-        }      
-        
-        private bool IsDigit(char c) => Parse(numbers, c, 0, numbers.Length - 1) > -1;              
+        internal async Task<int> ParseAsync(int value = 0)
+        {           
+            if (position > _text.Length - 1)
+                return value;
 
-        private int Parse(char[] arr,char c, int lower, int upper)
+            var current = MoveNext();
+            if (await IsDigit(current))
+                value = value * 10 + (current - '0');
+
+            return await ParseAsync(value);
+        }
+
+        private async Task<bool> IsDigit(char c) => await Parse(numbers, c, 0, numbers.Length - 1) > -1;              
+
+        private async Task<int> Parse(char[] arr,char c, int lower, int upper)
         {
             if(lower > upper)
                 return -1;
@@ -51,7 +52,7 @@ namespace ConsoleTest
             else         
                 upper = mid - 1;
                 
-            return Parse(arr, c,lower, upper);                   
+            return await Parse(arr, c,lower, upper);                   
         }
 
         private char MoveNext()
