@@ -40,7 +40,7 @@ namespace ConsoleTest
             if (IsDigit(current))            
                 value = value * 10 + (current - '0');                
             
-            return Parse();    
+            return Parse(value);    
         }
         
         private static bool IsDigit(char c) => ParseIndex(c) > -1;
