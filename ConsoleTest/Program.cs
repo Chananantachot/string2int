@@ -31,7 +31,6 @@ namespace ConsoleTest
         private static int ParseNumber() 
         {
            text = new StringBuilder().Append(Parse()).ToString();
-           position = 0;
            return ParseToInt();
         }   
             
