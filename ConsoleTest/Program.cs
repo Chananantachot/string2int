@@ -43,7 +43,10 @@ namespace ConsoleTest
             value += current - '0';
             
             if(position == text.Length)
+            {
+                position = 0;
                 return value;
+            }
             
             return ParseToInt(value);            
         }
