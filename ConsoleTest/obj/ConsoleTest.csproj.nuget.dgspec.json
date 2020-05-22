@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\atipc\\source\\repos\\ConsoleTest\\ConsoleTest\\ConsoleTest.csproj": {}
+    "C:\\Users\\atipc\\source\\repos\\string2int\\ConsoleTest\\ConsoleTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\atipc\\source\\repos\\ConsoleTest\\ConsoleTest\\ConsoleTest.csproj": {
+    "C:\\Users\\atipc\\source\\repos\\string2int\\ConsoleTest\\ConsoleTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\atipc\\source\\repos\\ConsoleTest\\ConsoleTest\\ConsoleTest.csproj",
+        "projectUniqueName": "C:\\Users\\atipc\\source\\repos\\string2int\\ConsoleTest\\ConsoleTest.csproj",
         "projectName": "ConsoleTest",
-        "projectPath": "C:\\Users\\atipc\\source\\repos\\ConsoleTest\\ConsoleTest\\ConsoleTest.csproj",
+        "projectPath": "C:\\Users\\atipc\\source\\repos\\string2int\\ConsoleTest\\ConsoleTest.csproj",
         "packagesPath": "C:\\Users\\atipc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\atipc\\source\\repos\\ConsoleTest\\ConsoleTest\\obj\\",
+        "outputPath": "C:\\Users\\atipc\\source\\repos\\string2int\\ConsoleTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\atipc\\AppData\\Roaming\\NuGet\\NuGet.Config",

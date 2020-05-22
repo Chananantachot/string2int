@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6Z7mL2aZ53Z1Uw/DOizRgzv6ykhm6IfLt8GzhyUA8++iE10bu8eyKSGAi2xq20/3W8PW8T+CjkNb9z5ilV5QrQ==",
+  "dgSpecHash": "Tvu5YRUA+mU90S5BYfpVuMqxPcYQA0PZiChdKtex/bECEPoW7qu4RDUib4zji9NUnU+tzkwgxho7O0EOP1IT9A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\atipc\\source\\repos\\ConsoleTest\\ConsoleTest\\ConsoleTest.csproj",
+  "projectFilePath": "C:\\Users\\atipc\\source\\repos\\string2int\\ConsoleTest\\ConsoleTest.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
