@@ -23,28 +23,31 @@ namespace ConsoleTest
             {                  
                 text = arr;
                 var n = ParseNumber();
-                Console.WriteLine($"{text} --> {n}");
+                Console.WriteLine($"{arr} --> {n}");
                 text = string.Empty;                         
             }
         }
         
         private static int ParseNumber() 
         {
-           var str =new StringBuilder().Append(Parse()).ToString();
-           return ParseToInt(str);
+           text = new StringBuilder().Append(Parse()).ToString();
+           return ParseToInt();
         }   
             
-        private static int ParseToInt(string s, int pos = 0 , int val = 0)
+        private static int ParseToInt(int value = 0)
         {
-            var current = s[pos];
-            pos++;
-            val *=10;
-            val += current - '0';
+            var current = MoveNext();
             
-            if(pos == s.Length)
-                return val;
+            value *=10;
+            value += current - '0';
             
-            return ParseToInt(s,pos,val);            
+            if(position == text.Length)
+            {
+                position = 0;
+                return value;
+            }
+            
+            return ParseToInt(value);            
         }
         
         private static string Parse()
