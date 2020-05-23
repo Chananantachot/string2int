@@ -9,22 +9,20 @@ namespace ConsoleTest
          private readonly char[] numbers;
          private int position;
          private readonly string _text;
-       
+         private readonly int _length;
         public Parser(string text)
         {
-            numbers = "0123456789".ToCharArray();
+            numbers = new char[] {'0','1','2','3','4','5','6','7','8','9' };
             position = 0;
             _text =  text;
+            _length = _text.Length - 1;
         }
 
-        public void Dispose()
-        {
-           GC.SuppressFinalize(this); 
-        }
+        public void Dispose() => GC.SuppressFinalize(this);
 
         internal async Task<int> ParseAsync(int value = 0)
         {           
-            if (position > _text.Length - 1)
+            if (position > _length)
                 return value;
 
             var current = MoveNext();
@@ -34,7 +32,7 @@ namespace ConsoleTest
             return await ParseAsync(value);
         }
 
-        private async Task<bool> IsDigit(char c) => await Parse(numbers, c, 0, numbers.Length - 1) > -1;              
+        private async Task<bool> IsDigit(char c) => await Parse(numbers, c, 0, 9) > -1;              
 
         private async Task<int> Parse(char[] arr,char c, int lower, int upper)
         {
@@ -65,8 +63,8 @@ namespace ConsoleTest
         private char Peek(int offset)
         {
             var index = position + offset;
-            if(index >= _text.Length)
-                return _text[index -1];
+            if(index > _length)
+                return _text[_length];
 
             return _text[index];
         }
